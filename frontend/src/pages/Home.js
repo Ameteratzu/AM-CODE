@@ -1,10 +1,22 @@
-
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Partners from "../components/Partners";
+import Services from "../components/Services";
+import Presentation from "../components/Presentation";
+import Footer from "../components/Footer";
 const Home = () => {
-    return (
-        <div className="text-3xl font-bold underline">
-            Soy el Home
-        </div>
-    )
-}
+  return (
+    <>
+      <Navbar />
+      {/*
+      <Hero />
+      <Partners />
+      <Services />
+      <Presentation />
+      <Footer />
+      */}
+    </>
+  );
+};
 
 export default Home;
