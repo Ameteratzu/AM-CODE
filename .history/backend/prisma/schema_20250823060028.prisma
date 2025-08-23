@@ -1,0 +1,35 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Rol {
+  ADMIN
+  MANAGER
+  EMPLOYEE
+}
+
+enum PunchType {
+  CLOCK_IN        // entrada
+  CLOCK_OUT       // salida
+  BREAK_START     // pausa corta
+  BREAK_END
+  LUNCH_START     // almuerzo
+  LUNCH_END
+  TOILET_START    // baño
+  TOILET_END
+}
+
+model Usuario {
+  id            Int         @id @default(autoincrement())
+  email         String      @unique
+  nombre        String
+  rol           Rol         @default(EMPLOYEE)
+  activo        Boolean     @default(true)
+  tz            String      @default("America/Lima")
+  passwordHash  String?

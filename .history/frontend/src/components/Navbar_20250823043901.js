@@ -24,11 +24,6 @@ const Navbar = () => {
           <li>
             <a href="#contact" className="text-white hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Políticas y privacidad</a>
           </li>
-          <li>
-            <Link to="/asistencia" className="text-white hover:text-[#BD52FF] font-semibold">
-              Asistencia
-            </Link>
-          </li>
         </ul>
 
         {/*REGISTRARSE*/}

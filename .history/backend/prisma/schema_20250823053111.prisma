@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Rol {
+  ADMIN
+  MANAGER
+  EMPLOYEE
+}
+
+enum PunchType {
+  CLOCK_IN        // entrada
+  CLOCK_OUT       // salida
+  BREAK_START     // pausa corta (snack)
+  BREAK_END
+  LUNCH_START     // almuerzo
+  LUNCH_END
+  TOILET_START    // baño
+  TOILET_END
+}
+
+model Usuario {
+  id          Int         @id @default(autoincrement())
+  email       String      @unique
+  nombre      String
+  rol         Rol         @default(EMPLOYEE)
+  activo      Boolean     @default(true)
+  tz          String      @default("America/Lima")
+  passwordHash String?    // <— NEW (por ahora opcional para migrar fácil)
+  creadoEn    DateTime    @default(now())
+  marcaciones Marcacion[]
+
+  @@map("usuarios")
+}
+
+
+model Marcacion {
+  id        Int       @id @default(autoincrement())
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  tipo      PunchType
+  at        DateTime  @default(now()) // instante UTC
+  ip        String?   @db.VarChar(64)
+  userAgent String?
+  note      String?
+  lat       Decimal?  @db.Decimal(9, 6)
+  lng       Decimal?  @db.Decimal(9, 6)
+  createdAt DateTime  @default(now())
+
+  @@index([usuarioId, at])
+  @@map("marcaciones")
+}
+
+
+enum EvidenciaTipo {
+  SCREENSHOT
+  RECORDING
+}
+
+model Evidencia {
+  id           Int        @id @default(autoincrement())
+  usuario      Usuario    @relation(fields: [usuarioId], references: [id])
+  usuarioId    Int
+  url          String
+  publicId     String
+  resource     String     // "image" o "video" (lo que devuelva Cloudinary)
+  bytes        Int?
+  kind         EvidenciaTipo
+  marcacion    Marcacion? @relation(fields: [marcacionId], references: [id])
+  marcacionId  Int?
+  note         String?
+  ip           String?    @db.VarChar(64)
+  userAgent    String?
+  createdAt    DateTime   @default(now())
+
+  @@index([usuarioId, createdAt])
+  @@map("evidencias")
+}
+
+
+enum EvidenciaTipo {
+  SCREENSHOT
+  RECORDING
+}
+
+model Evidencia {
+  id           Int        @id @default(autoincrement())
+  usuario      Usuario    @relation(fields: [usuarioId], references: [id])
+  usuarioId    Int
+  url          String
+  publicId     String
+  resource     String
+  bytes        Int?
+  kind         EvidenciaTipo
+  marcacion    Marcacion? @relation(fields: [marcacionId], references: [id])
+  marcacionId  Int?
+  note         String?
+  ip           String?    @db.VarChar(64)
+  userAgent    String?
+  createdAt    DateTime   @default(now())
+
+  @@index([usuarioId, createdAt])
+  @@map("evidencias")
+}

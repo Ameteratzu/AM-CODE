@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// MODELOS BASE (puedes ampliarlos luego)
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  nombre    String
+  rol       String   // admin, agente, etc.
+  creadoEn  DateTime @default(now())
+  ordenes   Orden[]
+}
+
+model Cliente {
+  id        Int      @id @default(autoincrement())
+  nombres   String
+  apellidos String
+  telefono  String?
+  email     String?
+  autos     Automovil[]
+  ordenes   Orden[]
+}
+
+model Automovil {
+  id        Int      @id @default(autoincrement())
+  placa     String   @unique
+  marca     String
+  modelo    String
+  anio      Int?
+  cliente   Cliente  @relation(fields: [clienteId], references: [id])
+  clienteId Int
+  ordenes   Orden[]
+}
+
+enum EstadoOrden {
+  CREADA
+  PESO
+  DESPACHO
+  ENTREGADO
+}
+
+model Producto {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  precio    Decimal  @db.Decimal(10,2)
+  ordenes   OrdenProducto[]
+}
+
+model Orden {
+  id          Int          @id @default(autoincrement())
+  cliente     Cliente      @relation(fields: [clienteId], references: [id])
+  clienteId   Int
+  automovil   Automovil?   @relation(fields: [automovilId], references: [id])
+  automovilId Int?
+  usuario     Usuario      @relation(fields: [usuarioId], references: [id])
+  usuarioId   Int
+  estado      EstadoOrden  @default(CREADA)
+  numero      String       @unique
+  creadoEn    DateTime     @default(now())
+  items       OrdenProducto[]
+}
+
+model OrdenProducto {
+  orden      Orden    @relation(fields: [ordenId], references: [id])
+  ordenId    Int
+  producto   Producto @relation(fields: [productoId], references: [id])
+  productoId Int
+  cantidad   Int      @default(1)
+  @@id([ordenId, productoId])
+}

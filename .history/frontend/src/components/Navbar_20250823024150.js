@@ -1,5 +1,4 @@
 import LanguageSelector from "../components/LanguajeSelector"
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return(
@@ -23,11 +22,6 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contact" className="text-white hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Políticas y privacidad</a>
-          </li>
-          <li>
-            <Link to="/asistencia" className="text-white hover:text-[#BD52FF] font-semibold">
-              Asistencia
-            </Link>
           </li>
         </ul>
 
