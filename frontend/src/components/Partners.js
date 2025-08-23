@@ -3,10 +3,12 @@ import PartnersLogos from "./PartnersLogos";
 const Partners = ({ className = "" }) => {
   const logosArray = [
     "/logosPartners/apyce.png",
-    "/logosPartners/bitcrux.png",
     "/logosPartners/imporisel.png",
     "/logosPartners/kamasa.png",
-    "/logosPartners/tcn.png"
+    "/logosPartners/tcn.png",
+    "/logosPartners/market.png",
+    "/logosPartners/grupolince.png",
+    "/logosPartners/batallon.png"
   ];
 
   return (

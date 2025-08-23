@@ -14,7 +14,12 @@ const Presentation = ({ className = "" }) => {
           </p>
           {/*PORTAFOLIO*/}
           <div className="flex justify-start w-full">
-            <button className="text-white font-bold text-xs bg-[#9241E0] w-[209px] h-[52px] rounded-lg">
+            <button className="text-white font-bold text-xs bg-[#9241E0] hover:bg-gradient-to-l 
+          from-[#E0962F] 
+          to-[#
+          9747FF
+          100
+          ]  w-[209px] h-[52px] rounded-xl">
               Ver portafolio →
             </button>
           </div>

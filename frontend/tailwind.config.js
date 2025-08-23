@@ -13,7 +13,7 @@ module.exports = {
         },
       },
       animation: {
-        scroll: "scroll 10s linear infinite",
+        scroll: "scroll 3s linear infinite",
       },
     },
   },
