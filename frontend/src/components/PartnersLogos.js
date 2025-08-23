@@ -2,7 +2,7 @@ import React from "react";
 
 const PartnersLogos = ({ logos = [] }) => {
   return (
-    <div className="w-[1600px] h-[200px] overflow-hidden relative mx-auto bg-transparent">
+    <div className="w-full h-[200px] overflow-hidden relative mx-auto bg-transparent">
       <div className="flex animate-scroll whitespace-nowrap">
         {logos.concat(logos).map((logo, index) => (
           <div
@@ -12,7 +12,7 @@ const PartnersLogos = ({ logos = [] }) => {
             <img
               src={logo}
               alt={`logo-${index}`}
-              className="max-h-[180px] object-contain"
+              className=""
             />
           </div>
         ))}

@@ -3,7 +3,7 @@ import LanguageSelector from "../components/LanguajeSelector"
 const Navbar = () => {
   return(
     <nav className="text-white shadow-md">
-      <div className="mx-auto px-4 py-3 flex justify-around items-center">
+      <div className="mx-auto w-full px-4 py-3 flex justify-around items-center">
         {/* Logo */}
         <img src="/iconAMcode.png" alt="LogoAmCode"
         className="w-[139px] h-[34px]" 

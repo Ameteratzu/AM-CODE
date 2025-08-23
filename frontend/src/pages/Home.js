@@ -8,15 +8,16 @@ const Home = () => {
   return (
     <>
       <main
-        className="relative min-w-[1920px] min-h-[950px] bg-cover bg-center"
+        className="relative w-full min-h-[950px] bg-cover bg-center"
         style={{ backgroundImage: "url('/fondo.png')" }}
       >
         <Navbar />
         <Hero />
       </main>
-      <Partners className="w-[1920px] h-[437px] bg-[#291140]" />
-      <Presentation className="w-[1920px] h-[450px] bg-[#5D449B]" />
-      <Footer className="w-[1920px] h-[280px] bg-black" />
+      <Partners className="w-full h-[437px] bg-[#2e1942]" />
+      <Services className="w-full h-[700px] bg-[#291140]"  />
+      <Presentation className="w-full h-[450px] bg-[#5D449B]" />
+      <Footer className="w-full h-[280px] bg-black" />
       {/*
       <Partners />
       <Services />
