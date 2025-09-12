@@ -1,5 +1,6 @@
 import CardPoliticas from "../components/CardPoliticas";
 import HeroRecicler from "../components/HeroRecicler";
+import { useRef } from "react";
 const Politicas = () => {
   const politicas = [
     {
@@ -60,6 +61,13 @@ const Politicas = () => {
     },
   ];
 
+  // 🔹 refs dinámicos (uno por cada política)
+  const refs = useRef(politicas.map(() => null));
+
+  const handleScroll = (index) => {
+    refs.current[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <>
       <HeroRecicler
@@ -72,24 +80,22 @@ const Politicas = () => {
         <div className="w-full h-full flex justify-around items-center">
           {/* Links */}
           <ul className="flex gap-9">
-            {politicas.map((politicas, index) => (
+            {politicas.map((p, index) => (
               <li
-                className="rounded-2xl bg-[#BD52FF]/50 p-2 flex justify-center items-center "
-                key={index}
+                key={p.id}
+                className="rounded-2xl bg-[#BD52FF]/50 p-2 flex justify-center items-center cursor-pointer"
+                onClick={() => handleScroll(index)}
               >
-                <a
-                  href={`#politica-${politicas.id}`}
-                  className="text-black font-semibold text-[12px]"
-                >
-                  {politicas.title}
-                </a>
+                <span className="text-black font-semibold text-[12px]">
+                  {p.title}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </nav>
       <section className="flex justify-center items-center p-4">
-        <div className="w-[1000px] h-ful bg-white flex-col justify-center items-center">
+        <div className="flex w-[1000px] h-ful bg-white flex-col justify-center gap-4">
           <div className="flex justify-start">
             <p className="font-inter text-[15px] text-black font-normal">
               En AmCode, valoramos y respetamos tu privacidad. Esta Política de
@@ -105,8 +111,12 @@ const Politicas = () => {
               descritas en este documento.
             </p>
           </div>
-          {politicas.map((p) => (
-            <div id={`politica-${p.id}`} key={p.id} className="mb-6">
+          {politicas.map((p,index) => (
+            <div
+              key={p.id}
+              ref={(el) => (refs.current[index] = el)}
+              className="mb-6"
+            >
               <CardPoliticas
                 id={p.id}
                 title={p.title}

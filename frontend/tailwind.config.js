@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         inter: ['Inter', 'sans-serif'],
+        segoe: ['"Segoe UI"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       keyframes: {
         scroll: {
