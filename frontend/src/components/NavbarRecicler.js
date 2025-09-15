@@ -1,5 +1,5 @@
 import LanguageSelector from "../components/LanguajeSelector"
-
+import { Enlaces } from "./enlaces";
 const NavbarLayout = () => {
   return(
     <nav className="text-white shadow-md bg-[#1D0435]">
@@ -9,21 +9,8 @@ const NavbarLayout = () => {
         className="w-[139px] h-[34px]" 
         />
 
-        {/* Links */}
-        <ul className="flex gap-9">
-          <li>
-            <a href="#home" className="text-white hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Inicio</a>
-          </li>
-          <li>
-            <a href="#services" className="text-white hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Sobre Nosotros</a>
-          </li>
-          <li>
-            <a href="#about" className="text-white  hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Nuestros Proyectos</a>
-          </li>
-          <li>
-            <a href="#contact" className="text-white hover:text-[#BD52FF] font-semibold w-[40px] h-[19px]">Políticas y privacidad</a>
-          </li>
-        </ul>
+        <Enlaces enlaces={["inicio", "about", "portfolio", "politicas"]} />
+      
 
         {/*REGISTRARSE*/}
         <button className="text-white font-bold text-xs bg-[#9241E0] hover:bg-gradient-to-l 

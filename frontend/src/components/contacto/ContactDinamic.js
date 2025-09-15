@@ -5,7 +5,7 @@ const ContactDinamic = () => {
     {
       fondo: "/logosContacto/desarrolladores.png",
       info: "Entregas Rapidas",
-      icono: "/iconos/security.png",
+      icono: "/gifts/cohete gifff.gif",
       imagenFlotante: "/flotantes/Frame 285.png",
       titulo: "Del conociento a la realidad en tiempo real",
       resaltado: "para tu negocio",
@@ -16,7 +16,7 @@ const ContactDinamic = () => {
     {
       fondo: "/logosContacto/empresario.png",
       info: "Apps Multiplataforma",
-      icono: "/iconos/security.png",
+      icono: "/gifts/ppp.gif",
       imagenFlotante: "/flotantes/firewall.png",
       titulo: "Tu idea, en todos los dispositivos",
       resaltado: "para tu negocio",
@@ -27,7 +27,7 @@ const ContactDinamic = () => {
     {
       fondo: "/logosContacto/ciberseguridad.png",
       info: "Seguridad",
-      icono: "/iconos/security.png",
+      icono: "/gifts/20-PM-unscreen.gif",
       imagenFlotante: "/flotantes/firewall.png",
       titulo: "Confianza blindada para tu negocio",
       resaltado: "para tu negocio",
@@ -38,7 +38,7 @@ const ContactDinamic = () => {
     {
       fondo: "/logosContacto/profesional.png",
       info: "Soporte",
-      icono: "/iconos/security.png",
+      icono: "/gifts/24-PM-unscreen.gif",
       imagenFlotante: "/flotantes/firewall.png",
       titulo: "Confianza blindada para tu negocio",
       resaltado: "para tu negocio",

@@ -63,6 +63,8 @@ export default function App() {
         <Route path="/proyectos" element={<Proyectos />} />
       </Route>
       <Route path="/login" element={<Login />} />
+
+
       <Route
         path="/asistencia"
         element={
@@ -71,6 +73,8 @@ export default function App() {
           </RequireAuth>
         }
       />
+
+
       <Route
         path="/capturas"
         element={
@@ -79,6 +83,8 @@ export default function App() {
           </RequireAuth>
         }
       />
+
+      
       <Route
         path="/admin"
         element={

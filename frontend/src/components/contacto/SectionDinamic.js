@@ -25,10 +25,13 @@ const CarruselDinamico = ({ secciones }) => {
                 activeIndex === i ? "bg-orange-500" : "bg-white/30"
               }`}
             />
-            <span   
-            className={`w-2 h-5  transition-colors whitespace-nowrap ${
-                activeIndex === i ? "text-white font-bold font-inter text-[12px]" : "text-gray-500 font-bold font-inter text-[12px]"
-              }`}>
+            <span
+              className={`w-2 h-5  transition-colors whitespace-nowrap ${
+                activeIndex === i
+                  ? "text-white font-bold font-inter text-[12px]"
+                  : "text-gray-500 font-bold font-inter text-[12px]"
+              }`}
+            >
               {s.info}
             </span>
           </li>
@@ -51,11 +54,18 @@ const CarruselDinamico = ({ secciones }) => {
               className="relative w-full h-[450px] flex items-start py-16 justify-center bg-cover bg-center"
               style={{ backgroundImage: `url(${data.fondo})` }}
             >
-              <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-[1000px] px-6 gap-10">
+              <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-[1050px] px-6 gap-10">
                 {/* Texto */}
-                <div className="flex flex-col gap-4 max-w-[800px]">
-                  <div className="flex flex-col gap-3 items-start">
-                    <h2 className="font-inter font-bold text-[28px] bg-gradient-to-l text-transparent bg-clip-text from-[#B80AB5] to-[#E18708]">
+                <div className="flex items-center gap-1 max-w-[800px]">
+                  <div className="flex">
+                    <img
+                      src={`${data.icono}`}
+                      className="max-w-24 max-h-40"
+                      alt="gift-img"
+                    />
+                  </div>
+                  <div className="flex flex-col w-full gap-3 items-start">
+                    <h2 className="w-full font-inter font-bold text-[28px] bg-gradient-to-l text-transparent bg-clip-text from-[#B80AB5] to-[#E18708] whitespace-nowrap overflow-hidden text-ellipsis">
                       {data.titulo}
                     </h2>
                     <p className="font-inter font-bold text-[14px] text-white">
